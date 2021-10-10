@@ -53,7 +53,7 @@
                                
                                 <div class="col-lg-2">
                                     <button class="btn btn-primary filter-search-submit">Search</button>
-                                    {{-- <button class="btn btn-primary" id="export-to-excel">Export to Excel</button> --}}
+                                    <button class="btn btn-primary" id="export-to-excel">Export to Excel</button> 
                                     <button class="btn btn-primary" onClick="(() => location.reload(true))()"><i
                                             class="mdi mdi-refresh text-white"></i></button>
                                 </div>

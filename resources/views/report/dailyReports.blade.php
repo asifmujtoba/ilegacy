@@ -42,7 +42,15 @@
                                             placeholder="Order Id">
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-2">
+                                    <select name="" id="callerfilter" name="callerfilter" class="select2">
+                                        <option value="">Select a Caller</option>
+                                        @foreach ($callers as $caller)
+                                            <option value="{{ $caller->id }}">{{ $caller->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-2">
                                     <button class="btn btn-primary filter-search-submit">Search</button>
                                     <button class="btn btn-primary" id="export-to-excel">Export to Excel</button>
                                     <button class="btn btn-primary" onClick="(() => location.reload(true))()"><i
@@ -89,6 +97,9 @@
                                     <th>Customer</th>
                                     <th>Caller </th>
                                     <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Note</th>
                                     <th>Last Modified At</th>
                                     <th>Caller Status</th>
                                 </tr>

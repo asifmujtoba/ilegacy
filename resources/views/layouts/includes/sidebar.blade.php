@@ -85,12 +85,12 @@
                                 <span class="hide-menu"> Daily Status </span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <!-- <li class="sidebar-item">
                             <a href="{{ route('reports.callerReports') }}" class="sidebar-link">
                                 <i class="mdi mdi-adjust"></i>
                                 <span class="hide-menu"> Caller Status </span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
 
                 </li>

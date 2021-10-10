@@ -128,11 +128,6 @@
     <script src="/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="/assets/custom-assets/js/leads.js"> </script>
     <script src="/assets/custom-assets/js/duplicate_leads.js"> </script>
-   <!-- <script>
-       Echo.channel('calling')
-            .listen('CallingNow', (e)=>{
-                console.log(e.message);
-            })
-    </script>  -->
+   
  
 @endsection

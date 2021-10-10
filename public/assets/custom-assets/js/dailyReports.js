@@ -23,6 +23,7 @@ const table = $('#report-datatable').DataTable({
             d.status = newStatusForFilter;
             d.phone = $('#phone').val();
             d.orderId = $('#orderId').val();
+            d.caller_filter = $('#callerfilter').val();
         }
     },
     columns: [
@@ -31,6 +32,9 @@ const table = $('#report-datatable').DataTable({
         {data: 'customer_id', name: 'customer_id'},
         {data: 'caller_id', name: 'caller_id'},
         {data: 'product_id', name: 'product_id'},
+        {data: 'price', name: 'quantity'},
+        {data: 'quantity', name: 'quantity'},
+        {data: 'note', name: 'note'},
         {data: 'updated_at', name: 'updated_at'},
         {data: 'status_caller', name: 'status_caller'},
     ],
@@ -78,11 +82,13 @@ $.fn.DataTable.Api.register( 'buttons.exportData()', function( options ) {
 
       var items = [];
       var status = $('#status').val();
+      var caller_filter = $('#callerfilter').val();
+      var from = ('#from').val();
+      var to = ('#to').val();
       $.ajax({
-        url: "/api/reports/get",
-        // data: { columns: columns, order: order, search: search, status: status, page: 'all' },
+        url: "/api/reports/get/custom",
+        // data: { from: from, to: to, caller_filter: caller_filter, columns: columns, order: order, search: search, status: status, page: 'all' },
         success: function (result) {
-            console.log(result);
 
           $.each(result.data, function(key, value) {
 

@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth:web'], function () {
 
     Route::get('/reports/get/custom', [ReportController::class, 'getReportsCustom'])->name('reports.get.custom');
     Route::get('/reports/get/attendance', [ReportController::class, 'getReportsAttendance'])->name('reports.get.attendance');
-    Route::get('/reports/get/callerreports',[ReportController::class, 'getReportsCaller']);
+    Route::get('/reports/get/callerreports',[ReportController::class, 'getReportsCaller'])->name('reports.get.caller');
 
     Route::post('/callers/filter-search', [ CallerController::class, 'filterSearch']);
     Route::get('/callers/count-status', [ CallerController::class, 'countStatus']);

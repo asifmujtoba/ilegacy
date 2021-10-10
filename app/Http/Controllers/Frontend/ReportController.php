@@ -19,7 +19,6 @@ class ReportController extends Controller
     public function export(Request $request)
     {
         $current_timestamp = date('d_m_Y_H_i_s', $_SERVER['REQUEST_TIME']);
-        ;
         return Excel::download(new ReportsExport($request), $current_timestamp.'_reports.xlsx');
     }
 
@@ -30,7 +29,8 @@ class ReportController extends Controller
 
     public function dailyReports()
     {
-        return view('report.dailyReports');
+        $callers = User::where('role', User::ROLE_CALLER)->get();
+        return view('report.dailyReports', compact('callers'));
     }
     public function attendanceReports()
     {

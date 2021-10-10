@@ -32,10 +32,10 @@ const table = $('#report-datatable').DataTable({
         {data: 'updated_at', name: 'updated_at'},
         {data: 'action', name: 'action' , orderable: 'false'},
     ],
-  //   dom: 'Bfrtip',
-  // buttons: [
-  // 'copy', 'csv', 'excel', 'pdf', 'print'
-  // ],
+     dom: 'Bfrtip',
+    buttons: [
+   'copy', 'csv', 'excel', 'pdf', 'print'
+   ],
 
     "fnDrawCallback": function(){
         handleLongPagination();
@@ -45,8 +45,6 @@ const table = $('#report-datatable').DataTable({
 });
 $.fn.DataTable.Api.register( 'buttons.exportData()', function( options ) {
     if(this.context.length) {
-
-      var src_keyword = $('.dataTables_filter input').val();
 
       // make columns for sorting
       var columns = [];
@@ -78,9 +76,8 @@ $.fn.DataTable.Api.register( 'buttons.exportData()', function( options ) {
       var status = $('#status').val();
       $.ajax({
         url: "/api/reports/get",
-        // data: { columns: columns, order: order, search: search, status: status, page: 'all' },
+        data: { columns: columns, order: order, search: search, status: status, page: 'all' },
         success: function (result) {
-            console.log(result);
 
           $.each(result.data, function(key, value) {
 
@@ -97,11 +94,10 @@ $.fn.DataTable.Api.register( 'buttons.exportData()', function( options ) {
         },
         async: false
       });
-
       return {
         body: items,
         // skip actions header
-        header: $("#report_datatable thead tr th").map(function() {
+        header: $("#report-datatable thead tr th").map(function() {
           if(this.innerHTML!='Actions')
             return this.innerHTML;
         }).get()
